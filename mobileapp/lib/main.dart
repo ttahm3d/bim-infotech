@@ -270,6 +270,7 @@ class _CheckinPageState extends State<CheckinPage> {
         lng: position.longitude,
       );
 
+      print(position.latitude);
       widget.onCheckin(entry);
 
       if (mounted) {
