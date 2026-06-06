@@ -1,0 +1,32 @@
+{
+  "name": "hono-backend",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "stack:dev": "docker compose up -d && wrangler dev",
+    "stack:up": "docker compose up",
+    "stack:down": "docker compose down",
+    "stack:cleanup": "docker compose down --volumes --remove-orphans",
+    "prisma:generate": "npx prisma generate",
+    "prisma:migrate": "npx prisma migrate dev",
+    "prisma:reset": "npx prisma migrate reset",
+    "prisma:seed": "npx prisma db seed",
+    "deploy": "wrangler deploy --minify",
+    "cf-typegen": "wrangler types --env-interface CloudflareBindings"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.8.0",
+    "@prisma/client": "^7.8.0",
+    "bcryptjs": "^3.0.3",
+    "hono": "^4.12.18",
+    "prisma": "^7.8.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.0.0",
+    "tsx": "^4.21.0",
+    "wrangler": "^4.4.0"
+  }
+}
