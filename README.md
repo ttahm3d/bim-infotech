@@ -4,7 +4,7 @@ Mono repo for all things related to Bim infotech work
 
 ## Folders
 
-| Folder    | Detail                                         |
-| --------- | ---------------------------------------------- |
-| mobileapp | Flutter app - employee centric daily checkins  |
-| backend   | Contains nestjs app, docker and database setup |
+| Folder       | Detail                                        |
+| ------------ | --------------------------------------------- |
+| mobileapp    | Flutter app - employee centric daily checkins |
+| hono-backend | Contains hono app, docker and database setup  |
