@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, IBM_Plex_Sans } from "next/font/google";
+import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/common/header";
 
 const ibmPlexSans = IBM_Plex_Sans({
   weight: ["300", "400", "500", "600", "700"],
@@ -24,10 +23,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml"></link>
       </head>
-      <body className={`${ibmPlexSans.className} antialiased`}>
-        <Header />
-        {children}
-      </body>
+      <body className={`${ibmPlexSans.className} antialiased`}>{children}</body>
     </html>
   );
 }

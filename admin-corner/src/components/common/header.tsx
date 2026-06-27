@@ -31,10 +31,10 @@ export default function Header() {
   ).toUpperCase();
 
   return (
-    <header className="flex items-center justify-between bg-primary p-6 text-white sm:p-8">
+    <header className="flex items-center justify-between bg-black px-6 py-4 text-white">
       <div className="flex flex-col justify-center">
         <h2 className="text-xl font-bold">BIM Infotech</h2>
-        <small className="text-sm tracking-wider">Admin dashboard</small>
+        <small className="text-sm tracking-wider">Admin corner</small>
       </div>
 
       <div className="relative" ref={menuRef}>
