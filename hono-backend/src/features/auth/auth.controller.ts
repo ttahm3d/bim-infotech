@@ -33,8 +33,8 @@ export const signup = async (
     // Set HTTP-only cookie with token
     setCookie(c, "auth_token", result.token, setCookieOptions);
 
-    // Return user data without token
-    return successResponse(c, { user: result.user }, 201);
+    // Return user data with token
+    return successResponse(c, { user: result.user, token: result.token }, 201);
   } catch (error) {
     if (error instanceof Error) {
       throw error; // Let global error handler catch it
@@ -63,8 +63,8 @@ export const signin = async (
     // Set HTTP-only cookie with token
     setCookie(c, "auth_token", result.token, setCookieOptions);
 
-    // Return user data without token
-    return successResponse(c, { user: result.user }, 200);
+    // Return user data with token
+    return successResponse(c, { user: result.user, token: result.token }, 200);
   } catch (error) {
     if (error instanceof Error) {
       throw error; // Let global error handler catch it

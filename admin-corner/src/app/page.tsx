@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -16,45 +17,49 @@ export default function Home() {
             Admin Corner
           </p>
           <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-            Clean, monochrome UI for your admin experience.
+            Manage your workspace from a polished admin portal.
           </h1>
           <p className="max-w-2xl text-lg text-muted-foreground">
-            This setup uses a classic black-and-white shadcn-inspired palette
-            with black as the primary action color.
+            Start with a secure sign-in or create an account to access your
+            dashboard.
           </p>
           <div className="flex flex-wrap gap-3">
-            <Button>Primary Action</Button>
-            <Button variant="outline">Secondary</Button>
+            <Button asChild>
+              <Link href="/login">Sign in</Link>
+            </Button>
+            <Button variant="outline" asChild>
+              <Link href="/signup">Create account</Link>
+            </Button>
           </div>
         </section>
 
         <div className="grid gap-6 md:grid-cols-2">
           <Card>
             <CardHeader>
-              <CardTitle>Black and white theme</CardTitle>
+              <CardTitle>Secure authentication</CardTitle>
               <CardDescription>
-                Neutral surfaces with bold black accents for clarity.
+                Login and signup both connect to the Hono backend auth APIs.
               </CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                The theme tokens are configured for a polished, minimal look
-                that works well for dashboards and admin tools.
+                Successful auth stores the token locally and redirects you to
+                the dashboard.
               </p>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>
-              <CardTitle>Shadcn-ready components</CardTitle>
+              <CardTitle>Black and white design</CardTitle>
               <CardDescription>
-                Buttons and cards are already wired for rapid UI building.
+                The interface stays minimal, modern, and easy to scan.
               </CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-muted-foreground">
-                Add more UI primitives from the same pattern as your product
-                grows.
+                Use the same theme system to extend the admin experience as
+                features grow.
               </p>
             </CardContent>
           </Card>

@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import { cors } from "hono/cors";
 import { prisma } from "./lib/prisma.js";
 import auth from "./features/auth/auth.routes.js";
 import worklog from "./features/worklog/worklog.routes.js";
@@ -7,6 +8,16 @@ import { errorResponse } from "./utils/response.js";
 import type { Bindings, Variables } from "./types/index.js";
 
 const app = new Hono<{ Bindings: Bindings; Variables: Variables }>();
+
+app.use(
+  "*",
+  cors({
+    origin: ["http://localhost:3000", "http://127.0.0.1:3000"],
+    allowMethods: ["GET", "POST", "OPTIONS"],
+    allowHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+  }),
+);
 
 // Middleware to inject Prisma into context
 app.use(async (c, next) => {
