@@ -47,6 +47,12 @@ dependencies:
   # Local storage for check-in records
   shared_preferences: ^2.3.5
 
+  # HTTP requests
+  http: ^1.2.2
+
+  # Secure storage
+  flutter_secure_storage: ^9.2.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
