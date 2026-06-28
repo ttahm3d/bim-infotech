@@ -6,11 +6,12 @@ const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! });
 const prisma = new PrismaClient({ adapter });
 
 async function main() {
-  await prisma.employee.create({
+  await prisma.user.create({
     data: {
       email: "test:@example.com",
       password: "test",
       name: "Test Employee",
+      role: "NEW",
     },
   });
 

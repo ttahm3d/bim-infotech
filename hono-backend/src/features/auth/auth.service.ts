@@ -6,7 +6,7 @@ import type { SignupInput, SigninInput } from "./auth.schema.js";
 export const AuthService = {
   signup: async (input: SignupInput, prisma: Prisma, jwtSecret: string) => {
     // Check if user already exists
-    const existing = await prisma.employee.findUnique({
+    const existing = await prisma.user.findUnique({
       where: { email: input.email },
     });
 
@@ -18,7 +18,7 @@ export const AuthService = {
     const hashedPassword = await hashPassword(input.password);
 
     // Create user
-    const user = await prisma.employee.create({
+    const user = await prisma.user.create({
       data: {
         name: input.name,
         email: input.email,
@@ -42,7 +42,7 @@ export const AuthService = {
   },
   signin: async (input: SigninInput, prisma: Prisma, jwtSecret: string) => {
     // Find user by email
-    const user = await prisma.employee.findUnique({
+    const user = await prisma.user.findUnique({
       where: { email: input.email },
     });
 

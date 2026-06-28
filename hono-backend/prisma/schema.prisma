@@ -11,11 +11,12 @@ datasource db {
   provider = "postgresql"
 }
 
-model Employee {
+model User {
   id          String       @id @default(uuid())
   email       String       @unique
   password    String
   name        String
+  role        Role         @default(NEW)
   verified    Boolean      @default(false)
   createdAt   DateTime     @default(now())
   attendances Attendance[]
@@ -23,14 +24,14 @@ model Employee {
 }
 
 model Attendance {
-  id         String   @id @default(uuid())
-  employeeId String
-  date       DateTime
-  createdAt  DateTime @default(now())
+  id        String   @id @default(uuid())
+  userId    String
+  date      DateTime
+  createdAt DateTime @default(now())
 
-  employee Employee @relation(fields: [employeeId], references: [id])
+  user User @relation(fields: [userId], references: [id])
 
-  @@unique([employeeId, date])
+  @@unique([userId, date])
 }
 
 model Office {
@@ -58,7 +59,7 @@ model WorkLog {
   updatedAt     DateTime       @updatedAt
   breakSessions BreakSession[]
 
-  user Employee @relation(fields: [userId], references: [id])
+  user User @relation(fields: [userId], references: [id])
 
   @@unique([userId, date])
 }
@@ -77,4 +78,13 @@ enum WorkLogStatus {
   ACTIVE
   ON_BREAK
   CHECKED_OUT
+}
+
+enum Role {
+  ADMIN
+  MANAGER
+  LEAD
+  EMPLOYEE
+  STUDENT
+  NEW
 }

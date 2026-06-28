@@ -45,7 +45,7 @@ app.get("/", (c) => {
 });
 
 app.get("/users", async (c) => {
-  const employees = await prisma.employee.findMany({ select: { name: true } });
+  const employees = await prisma.user.findMany({ select: { name: true } });
   const names = employees.map((employee) => employee.name);
   return c.text(JSON.stringify(names));
 });
