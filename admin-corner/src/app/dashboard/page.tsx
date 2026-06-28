@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -7,35 +6,62 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-export default function DashboardPage() {
+export default function DashboardHomePage() {
   return (
-    <main className="min-h-screen bg-background px-6 py-16 text-foreground sm:px-8 lg:px-12">
-      <div className="mx-auto flex max-w-5xl flex-col gap-6">
-        <div className="space-y-2">
-          <p className="text-sm font-medium uppercase tracking-[0.3em] text-muted-foreground">
-            Dashboard
-          </p>
-          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-            Welcome back
-          </h1>
-          <p className="max-w-2xl text-muted-foreground">
-            You are signed in and ready to manage the admin experience.
-          </p>
-        </div>
+    <div className="space-y-6">
+      <div className="space-y-2">
+        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-indigo-600">
+          Dashboard
+        </p>
+        <h1 className="text-3xl font-semibold tracking-tight">Welcome back</h1>
+        <p className="max-w-2xl text-sm text-slate-600">
+          Here is your command center for offices, employees, and reporting.
+        </p>
+      </div>
+
+      <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <Card>
+          <CardHeader>
+            <CardTitle>Overview</CardTitle>
+            <CardDescription>
+              See the most important operational activity at a glance.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-600">
+              A quick summary layer will appear here soon.
+            </p>
+          </CardContent>
+        </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>Admin overview</CardTitle>
+            <CardTitle>Recent updates</CardTitle>
             <CardDescription>
-              Everything is ready for your next workflow.
+              Track the latest changes made in your workspace.
             </CardDescription>
           </CardHeader>
-          <CardContent className="flex flex-wrap gap-3">
-            <Button>New report</Button>
-            <Button variant="outline">Open settings</Button>
+          <CardContent>
+            <p className="text-sm text-slate-600">
+              Recent activity panels will be added here.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Quick actions</CardTitle>
+            <CardDescription>
+              Jump into the most common admin tasks.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-600">
+              Shortcuts will be wired in as features are built out.
+            </p>
           </CardContent>
         </Card>
       </div>
-    </main>
+    </div>
   );
 }

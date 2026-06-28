@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { User } from "lucide-react";
 import { useAuthStore } from "@/lib/auth-store";
+import Logo from "@/components/common/logo";
 
 export default function Header() {
   const { isSignedIn, name, email } = useAuthStore();
@@ -32,10 +33,7 @@ export default function Header() {
 
   return (
     <header className="flex items-center justify-between bg-black px-6 py-4 text-white">
-      <div className="flex flex-col justify-center">
-        <h2 className="text-xl font-bold">BIM Infotech</h2>
-        <small className="text-sm tracking-wider">Admin corner</small>
-      </div>
+      <Logo mode="light" />
 
       <div className="relative" ref={menuRef}>
         <button
